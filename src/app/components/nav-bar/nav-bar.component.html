@@ -1,0 +1,52 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center" style="height: 70px;">
+  <button (click)=" slideMenu();" fxHide.gt-sm mat-fab class="menu-button"
+    aria-label="Example icon button with a home icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/" routerLinkActive="active">
+    <h1>
+      <mat-icon class="discord-icon">discord</mat-icon> -study
+    </h1>
+  </a>
+  <div class="link-container" fxHide.lt-md>
+    <a routerLink="/" routerLinkActive="active">
+      <h2>Dashboard</h2>
+    </a>
+    <a routerLink="/todo" routerLinkActive="active">
+      <h2>To-Do-List</h2>
+    </a>
+    <a routerLink="/digitalregister" routerLinkActive="active">
+      <h2>Digital-Register</h2>
+    </a>
+    <a routerLink="/studytimer" routerLinkActive="active">
+      <h2>Study-Timer</h2>
+    </a>
+    <a routerLink="/login" routerLinkActive="active">
+      <img *ngIf="checkLogin() == true" src="{{user?.discord?.avatarUrl}}">
+      <img *ngIf="checkLogin() == false" src="../../../assets/images/user-icon.jpg">
+    </a>
+  </div>
+</mat-toolbar>
+
+<div class="slide-menu" [ngClass]="slideMenuClass" fxLayout="column" fxHide.gt-sm fxLayoutAlign="space-evenly center">
+  <button class="clear-button" [ngClass]="slideMenuClass" (click)=" slideMenu();" fxHide.gt-sm mat-fab
+    aria-label="Example icon button with a home icon">
+    <mat-icon>clear</mat-icon>
+  </button>
+  <a (click)=" slideMenu();" routerLink="/" routerLinkActive="active">
+    <h2>Dashboard</h2>
+  </a>
+  <a (click)=" slideMenu();" routerLink="/todo" routerLinkActive="active">
+    <h2>To-Do-List</h2>
+  </a>
+  <a (click)=" slideMenu();" routerLink="/digitalregister" routerLinkActive="active">
+    <h2>Digital-Register</h2>
+  </a>
+  <a (click)=" slideMenu();" routerLink="/studytimer" routerLinkActive="active">
+    <h2>Study-Timer</h2>
+  </a>
+  <a (click)=" slideMenu();" routerLink="/login" routerLinkActive="active">
+    <img *ngIf="checkLogin() == true" src="{{user?.discord?.avatarUrl}}">
+    <img *ngIf="checkLogin() == false" src="../../../assets/images/user-icon.jpg">
+  </a>
+</div>

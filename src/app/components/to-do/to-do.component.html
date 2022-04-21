@@ -1,0 +1,20 @@
+<button style="margin: 20px;" mat-raised-button color="primary-lighter" (click)="openTaskDialog();">Add Task</button>
+<button mat-raised-button color="primary-lighter" (click)="openDeleteTasksDialog()">Delete All Tasks</button>
+
+
+<mat-selection-list [attr.disabled]="processing ? '' : null" ngModel #toDoList>
+  <mat-list-option *ngFor="let task of getUndoneTasks()" [value]="task" (click)="selectionChange(task)">
+    <p>
+      <mat-icon *ngIf="task.description" style="font-size: 20px; position: relative; top: 3px;" fxHide.lt-md
+        matTooltip={{task.description}}>description</mat-icon>{{task.title}}
+    </p>
+    <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>
+<hr>
+<mat-selection-list [attr.disabled]="processing ? '' : null" ngModel #DoneList>
+  <mat-list-option [selected]="true" *ngFor="let task of getDoneTasks()" [value]="task" (click)="selectionChange(task)">
+    <span style="text-decoration: line-through;">{{task.title}}</span>
+    <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>

@@ -1,0 +1,23 @@
+<div class="timer-button-container">
+  <div class="timer-container" fxLayout.lt-md="column" fxLayout.gt-sm="row" fxLayoutGap.gt-sm="8vw">
+    <div fxLayout="column">
+      <h1>Study Time</h1>
+      <button class="up-button" mat-raised-button (click)="incrementStudy()">+</button>
+      <mat-form-field appearance="legacy">
+        <input matInput type="number" [(ngModel)]="studyIntervall" min="0" oninput="validity.valid||(value='0')">
+      </mat-form-field>
+      <button mat-raised-button class="down-button" (click)="decreaseStudy()">-</button>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button class="save-study-button" (click)="saveTimerData()">Save</button>
+    </div>
+    <div fxLayout="column">
+      <h1>Break Time</h1>
+      <button mat-raised-button class="up-button" (click)="incrementBreak()">+</button>
+      <mat-form-field appearance="legacy">
+        <input matInput type="number" [(ngModel)]="breakIntervall" min="0" oninput="validity.valid||(value='0')">
+      </mat-form-field>
+      <button mat-raised-button class="down-button" (click)="decreaseBreak()">-</button>
+    </div>
+  </div>
+</div>

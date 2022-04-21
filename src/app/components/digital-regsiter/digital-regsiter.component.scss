@@ -1,0 +1,48 @@
+#digreg-container{
+  padding: 20px;
+  height: 90vh;
+}
+
+.chart-container{
+  height: 20px;
+}
+
+.card-container{
+  width: 100%;
+}
+
+mat-card {
+  background-color: #212121;
+  height: 38vh;
+}
+
+span{
+  margin-left: 6px;
+}
+
+.list-container{
+  width: 48vw;
+}
+
+mat-list{
+  height: 86vh;
+  overflow: auto
+}
+
+@media screen and (max-width: 960px) {
+  mat-card {
+    min-height: 350px;
+    height: 30vh;
+  }
+
+  mat-list{
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  mat-card {
+    min-height: 350px;
+    height: 30vh;
+  }
+}

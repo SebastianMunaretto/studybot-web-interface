@@ -1,0 +1,105 @@
+mat-card {
+  width: 40%;
+  min-height: 250px;
+  height: 39vh;
+  margin: 10px;
+  background-color: #212121;
+}
+
+.mat-card-title-container{
+  text-align:center;
+  width: 87%;
+  margin: 0;
+}
+
+#card-container{
+  width: 100vw;
+  height: 90vh;
+  font-family: Roboto;
+}
+
+mat-card-actions{
+  padding-left: 20px;
+}
+
+.study-timer-card-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+mat-card-content {
+  padding-left: 20px;
+  overflow: auto;
+  height: 23vh;
+}
+
+.big-user-image{
+  border-radius: 25px;
+}
+
+.profile-card-content{
+  width: 90%;
+  min-height: 200px;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem
+}
+
+.profile-card-content-study{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem
+}
+
+button {
+  background-color: baseColor;
+}
+
+mat-selection-list{
+  background-color: #272727;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+mat-list-option{
+  background-color:#272727;
+}
+
+@media screen and (max-width: 960px) {
+
+  #card-container{
+    width: 100%;
+    height: auto;
+    font-family: Roboto;
+  }
+
+  mat-card {
+    width: 90%;
+    min-height: 350px;
+    height: 28vh;
+  }
+
+  mat-card-content{
+    overflow: auto;
+    height: 21vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  #card-container{
+    padding-right: 20px;
+  }
+
+}
+

@@ -1,0 +1,70 @@
+<div id="card-container" fxLayoutAlign="center" fxLayout.lt-md="column" fxLayout.gt-sm="row wrap">
+  <mat-card>
+    <mat-card-header>
+      <div class="mat-card-title-container">
+        <mat-card-title>
+          <h1>ToDoList</h1>
+        </mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-selection-list #toDoList disabled>
+        <mat-list-option *ngFor="let task of getUndoneTasks()">
+          {{task.title}}
+          <mat-divider></mat-divider>
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button><a routerLink="/todo">ToDoList</a></button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <div class="mat-card-title-container">
+        <mat-card-title>
+          <h1>Marks</h1>
+        </mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="chart-container-dashboard">
+      <app-mark-chart></app-mark-chart>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button><a routerLink="/digitalregister">Digital Register</a></button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- Idea time on top and description on bottom-->
+  <mat-card>
+    <mat-card-header>
+      <div class="mat-card-title-container">
+        <mat-card-title>
+          <h1>Study Timer</h1>
+        </mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="profile-card-content-study">
+      <h2>Study Intervall: {{studyIntervall}}min☕</h2>
+      <h2>Brake Intervall: {{breakIntervall}}min💤</h2>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button><a routerLink="/studytimer">Study Timer</a></button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <div class="mat-card-title-container">
+        <mat-card-title>
+          <h1>Profile</h1>
+        </mat-card-title>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="profile-card-content">
+      <img class="big-user-image" src="{{user?.discord?.avatarUrl}}">
+      <p>{{user?.discord?.username}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,95 @@
+.timer-container{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100vw;
+  height: calc(85vh - 70px);
+}
+
+button {
+  width: 30vw;
+  height: 15vh;
+}
+
+button:hover{
+  background-color: #7b7b7b;
+}
+
+h1 {
+  text-align: center;
+  font-family: Roboto;
+  font-weight: 500;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-study-button{
+  font-size: 1.75rem;
+  box-shadow: none;
+  width: 125px;
+  height: 125px;
+  border-radius: 100px;
+  background-color: #212121;
+}
+
+.save-study-button:hover{
+  background-color: #272727;
+}
+
+.up-button{
+  width: 25vw;
+  font-size: 1.75rem;
+}
+
+.down-button{
+  width: 25vw;
+  font-size: 1.75rem;
+}
+
+
+input {
+  width: 30vw;
+  font-size: 3rem;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+@media screen and (max-width: 960px) {
+  button{
+    width: 60vw;
+    height: 50px;
+  }
+
+  input {
+    width: 60vw;
+  }
+
+  .up-button{
+    width: 50vw;
+    font-size: 1.75rem;
+  }
+
+  .down-button{
+    width: 50vw;
+    font-size: 1.75rem;
+  }
+
+  .save-study-button{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+}

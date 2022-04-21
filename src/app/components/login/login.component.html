@@ -1,0 +1,58 @@
+<div class="user-image-container">
+  <img *ngIf="user" class="user-image" src="{{user?.discord?.avatarUrl}}">
+  <img *ngIf="!user" class="user-image" src="../../../assets/images/user-icon.jpg">
+</div>
+
+<h1>{{user?.discord?.username}} </h1>
+
+<div *ngIf="!user" class="login-container">
+  <div class="login-buttons-container">
+    <div class="button-container">
+      <div class="discord-container">
+        <div class="discord-item-holder-image">
+          <img src="../../../assets/images/discord-icon.svg">
+        </div>
+        <div *ngIf="!user" class="discord-item-holder">
+          <a [href]="discordLoginRoute" style="color: white">Login with Discord</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="user" class="login-container" fxLayout="column">
+  <div class="login-buttons-container">
+    <div class="button-container">
+      <div class="discord-container">
+        <div class="discord-item-holder-image">
+          <img src="../../../assets/images/discord-icon.svg">
+        </div>
+        <div class="logged-in-item-holder">
+          <p>{{user?.discord?.username}} </p>
+        </div>
+      </div>
+    </div>
+    <!-- Digreg Login -->
+    <div class="button-container">
+      <div class="digreg-container">
+        <div class="digreg-item-holder-image">
+          <img src="../../../assets/images/digreg-icon.svg">
+        </div>
+        <div *ngIf="!user.digreg" class="digreg-item-holder">
+          <a style="color: black" [href]="digregLoginRoute">Connect Digital Register</a>
+        </div>
+        <div *ngIf="user.digreg" class="logged-in-item-holder">
+          <p>{{user?.digreg?.fullName}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO add digreg logout make prettier-->
+  <div style="height: 15px;"></div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly center" style="min-width: 400px;">
+    <button mat-raised-button color="stl"><a (click)="logoutDiscord()">Logout Discord</a></button>
+    <button mat-raised-button color="stl"><a (click)="logoutDigreg()">Logout Digreg</a></button>
+  </div>
+</div>

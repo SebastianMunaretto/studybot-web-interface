@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+}
+
+.dialog-content-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+textarea {
+  height: 100px;
+}
+
+mat-form-field {
+  width: 80%;
+}
