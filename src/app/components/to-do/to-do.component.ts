@@ -39,10 +39,13 @@ export class ToDoComponent implements OnInit {
   ngOnInit(): void {
     if (!this._discordAuthService.checkTokenValidity())
       this._router.navigateByUrl('/login')
+    this.getTasks();
+  }
+
+  getTasks(){
     this._discordAuthService.getToDoList().subscribe(result => {
       this.toDoArray = result
     })
-
   }
 
   selectionChange(task: Task) {
@@ -66,6 +69,7 @@ export class ToDoComponent implements OnInit {
       if (result.title != "") {
         this._discordAuthService.addTask(result).subscribe(requestResult => {
           this.toDoArray = requestResult;
+          this.getTasks();
         })
       } else {
         alert("Title is required!");
@@ -83,6 +87,7 @@ export class ToDoComponent implements OnInit {
       if (result === true) {
         this._discordAuthService.deleteTasks().subscribe(result => {
           this.toDoArray = result;
+          this.getTasks();
         })
       } else {
       }
