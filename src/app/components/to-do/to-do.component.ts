@@ -42,9 +42,9 @@ export class ToDoComponent implements OnInit {
     this.getTasks();
   }
 
-  getTasks(){
+  getTasks() {
     this._discordAuthService.getToDoList().subscribe(result => {
-      this.toDoArray = result
+      this.toDoArray = result;
     })
   }
 
@@ -52,7 +52,7 @@ export class ToDoComponent implements OnInit {
     task.done = !task.done
     this.processing = true;
     this._discordAuthService.toggleCompleteTask(task).subscribe(result => {
-      this.toDoArray = result;
+      this.getTasks();
     })
     this.processing = false;
   }
@@ -67,8 +67,7 @@ export class ToDoComponent implements OnInit {
     // MatDialogReference sends notifications (closed, ...)
     dialogRef.afterClosed().subscribe(result => {
       if (result.title != "") {
-        this._discordAuthService.addTask(result).subscribe(requestResult => {
-          this.toDoArray = requestResult;
+        this._discordAuthService.addTask(result).subscribe(result => {
           this.getTasks();
         })
       } else {
@@ -86,7 +85,6 @@ export class ToDoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === true) {
         this._discordAuthService.deleteTasks().subscribe(result => {
-          this.toDoArray = result;
           this.getTasks();
         })
       } else {
@@ -96,10 +94,10 @@ export class ToDoComponent implements OnInit {
   }
 
   getDoneTasks() {
-    return this.toDoArray.filter(item => item.done)
+    return this.toDoArray ? this.toDoArray.filter(item => item.done) : [];
   }
 
   getUndoneTasks() {
-    return this.toDoArray.filter(item => !item.done)
+    return this.toDoArray ? this.toDoArray.filter(item => !item.done) : [];
   }
 }
