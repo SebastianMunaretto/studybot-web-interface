@@ -2,6 +2,7 @@ import { StudybotApi } from 'src/app/types/apiTypes';
 import { DiscordAuthService } from './../../services/discord-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Chart, ChartData } from 'chart.js';
+import * as chroma from 'chroma-js';
 
 // type for chartjs dataset
 
@@ -30,8 +31,11 @@ export class MarkChartComponent implements OnInit {
 
       const dataset: any = this.grades.map((s, index) => {
         return {
-          backgroundColor: "#000000",
-          borderColor: "#ffffff",
+          backgroundColor: chroma.hsl(index / this.grades.length * 360, .8, .8).hex("rgb"),
+          borderColor: chroma.hsl(index / this.grades.length * 360, .8, .5).hex("rgb"),
+          cubicInterpolationMode: 'monotone',
+          tension: 0.6,
+          pointRadius: 2,
           label: s.subject,
           data: s.grades.map(g => {
             return {
@@ -45,25 +49,31 @@ export class MarkChartComponent implements OnInit {
 
       this.chart = new Chart('canvas', {
         type: "line",
-        data: { datasets: dataset },
+        data: {datasets: dataset},
         options: {
-          plugins: {
-            legend: {
-              display: false
-            }
-          },
+          color: "#ffffff",
           scales: {
             x: {
               type: 'time',
               time: {
                 unit: 'day'
+              },
+              ticks: {
+                color: "#ffffff",
+              },
+              grid: {
+                color: chroma.css("white").alpha(.2).hex("rgba")
               }
             },
             y: {
-              max: 10,
+              max: 11,
               min: 3,
               ticks: {
                 stepSize: 1,
+                color: "#ffffff",
+              },
+              grid: {
+                color: chroma.css("white").alpha(.2).hex("rgba")
               }
             }
           }

@@ -57,6 +57,9 @@ export class DigitalRegsiterComponent implements OnInit {
     })
 
     this.average = Math.round(buffer / markedSubjectCount * 100)/100;
+    this.bestSubject = Math.round(this.bestSubject * 100)/100;
+    this.worstSubject = Math.round(this.worstSubject * 100)/100;
+
   }
 
 }
