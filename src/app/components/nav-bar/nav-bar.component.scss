@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+.nav-title-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 h2 {
   color: white;
   text-align: center;
@@ -45,7 +51,7 @@ img {
   transition: all 0.25s ease-in;
 }
 
-img:hover{
+.user-image-nav:hover{
   width: 45px;
   height: 45px;
 }
@@ -66,15 +72,11 @@ li {
   float: left;
 }
 
-.discord-icon{
-  position: relative;
-  top: 7px;
-  left: 0px;
-  font-size: 2rem;
+.discord-image{
   transition: 0.6s transform;
 }
 
-.discord-icon:hover{
+.discord-image:hover{
   transform: rotate(360deg);
 }
 

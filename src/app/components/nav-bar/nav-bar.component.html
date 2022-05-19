@@ -4,9 +4,10 @@
     <mat-icon>menu</mat-icon>
   </button>
   <a routerLink="/" routerLinkActive="active">
-    <h1>
-      <mat-icon class="discord-icon">discord</mat-icon> -study
-    </h1>
+    <div class="nav-title-container">
+      <img class="discord-image" src="./../../../assets/images/studybot_logo.svg" width="5px">
+      <h1>  studybot </h1>
+    </div>
   </a>
   <div class="link-container" fxHide.lt-md>
     <a routerLink="/" routerLinkActive="active">
@@ -46,7 +47,7 @@
     <h2>Study-Timer</h2>
   </a>
   <a (click)=" slideMenu();" routerLink="/login" routerLinkActive="active">
-    <img *ngIf="checkLogin() == true" src="{{user?.discord?.avatarUrl}}">
-    <img *ngIf="checkLogin() == false" src="../../../assets/images/user-icon.jpg">
+    <img class="user-image-nav" *ngIf="checkLogin() == true" src="{{user?.discord?.avatarUrl}}">
+    <img class="user-image-nav" *ngIf="checkLogin() == false" src="../../../assets/images/user-icon.jpg">
   </a>
 </div>
