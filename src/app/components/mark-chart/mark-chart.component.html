@@ -1,3 +1,9 @@
-<canvas id="canvas" width="300px" height="88%">
+
+<canvas *ngIf="chartHeight === '88%'" id="canvas" width="300px" height="88%">
+  {{chart}}
+</canvas>
+
+
+<canvas *ngIf="chartHeight != '88%'" id="canvas" width="300px" height="150%">
   {{chart}}
 </canvas>

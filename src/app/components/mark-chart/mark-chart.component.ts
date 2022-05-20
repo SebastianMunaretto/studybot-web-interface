@@ -1,6 +1,6 @@
 import { StudybotApi } from 'src/app/types/apiTypes';
 import { DiscordAuthService } from './../../services/discord-auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Chart, ChartData } from 'chart.js';
 import * as chroma from 'chroma-js';
 
@@ -18,11 +18,17 @@ export class MarkChartComponent implements OnInit {
   chart: any = [];
   grades!: StudybotApi.Grades;
   dataset!: Dataset;
+  @Input("chartHeight") chartHeight!: string;
 
-  constructor(private _discordAuthService: DiscordAuthService) { }
+
+
+  constructor(private _discordAuthService: DiscordAuthService) {
+  }
 
   // TODO merge chart with grades data
   ngOnInit(): void {
+    console.log(this.chartHeight);
+
 
     const sortGradeByDate = (a: any, b: any) => a.x < b.x ? -1 : 1;
 
